@@ -12,8 +12,6 @@ import { Ionicons } from "@expo/vector-icons";
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
-const image =
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg/800px-Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg";
 
 const cartHandler = () => {
   console.log(windowWidth + " height" + windowHeight);
@@ -21,15 +19,15 @@ const cartHandler = () => {
 const detailHandler = () => {
   console.log("detailHandler clicked");
 };
-const ProductItem = () => {
+const ProductItem = props => {
   return (
     <View style={styles.mainContainer}>
       <TouchableOpacity activeOpacity={.9} onPress={detailHandler} >
         <View style={styles.containerItems}>
-          <Image style={styles.imageSize} source={{ uri: image }} />
-          <Text style={styles.title}>Title</Text>
+          <Image style={styles.imageSize} source={{ uri: props.image }} />
+          <Text style={styles.title}>{props.title}</Text>
           <View style={styles.cartContainer}>
-            <Text>Price</Text>
+            <Text>{props.price}</Text>
             <TouchableOpacity onPress={cartHandler}>
               <Ionicons name="cart-outline" size={32} />
             </TouchableOpacity>
