@@ -1,5 +1,5 @@
 import React from "react";
-import { View, FlatList, Image } from "react-native";
+import { View, FlatList} from "react-native";
 
 import ProductItem from "../components/ProductItem";
 import { ProductItems } from "../data/dummy-data";
@@ -14,10 +14,11 @@ const ShopScreen = () => {
   return (
     <View>    
       <FlatList
+      columnWrapperStyle={{justifyContent: 'space-evenly'}}
         data={ProductItems}
         renderItem={productItems}
         keyExtractor={(item) => item.id}
-        numColumns={2}
+         numColumns={2}
       />
     </View>
   );
